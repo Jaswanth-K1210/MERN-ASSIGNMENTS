@@ -1,12 +1,14 @@
 import express from "express";
 import { UserModel } from "../models/user.js";
+import { ArticleModel } from "../models/article.js";
+import { verifyToken, login } from "../middleware/verifyToken.js";
 import { hash, compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const userApp = express.Router();
 
 //create user
-userApp.post("/users", async (req, res) => {
+userApp.post("/register/users", async (req, res) => {
   let newUser = req.body;
   let role = newUser.role.toUpperCase();
   newUser.role = role;
@@ -19,41 +21,25 @@ userApp.post("/users", async (req, res) => {
 });
 
 //authenticate user
-userApp.post("/users/login", async (req, res) => {
-  let { email, password } = req.body;
-  let user = await UserModel.findOne({ email: email });
-  if (!user) {
-    return res.status(401).json({ message: "Invalid email or password" });
-  }
-  let isMatch = await compare(password, user.password);
-  if (!isMatch) {
-    return res.status(401).json({ message: "Invalid email or password" });
-  }
-  let token = jwt.sign(
-    { firstName: user.firstName },
-    process.env.JWT_SECRET_KEY,
-    { expiresIn: "1h" },
-  );
-  res.cookie("auth-token", token, {
-    httpOnly: true,
-    secure: true,
-    sameSite: "lax",
-  });
-  res.status(200).json({ message: "Login successful", token: token });
+userApp.post("/login", async (req, res) => {
+  await login(req,res);
 });
 
 //read all articles
-userApp.get("/articles", async (req, res) => {
+userApp.get("/articles",verifyToken, async (req, res) => {
   let articles = await ArticleModel.find();
   res.status(200).json({ articles: articles });
 });
 
 //add comment to an article
-userApp.post("/comment/userid/:id/articleid/:id", async (req, res) => {
-  let { userId, articleId } = req.params;
-  let comment = req.body;
+userApp.put("/comment/articleid/:articleId", verifyToken, async (req, res) => {
+  let { articleId } = req.params;
+  let {comment} = req.body;
+  console.log("user ID from Token:", req.user.id);
+  console.log("Article ID:", articleId);
+  console.log("Comment Data:", comment);
   let article = await ArticleModel.findByIdAndUpdate(articleId, {
-    $push: { comments: { user: userId, comment: comment } },
-  },{new:true}).populate("article.user");
+    $push: { comments: { user: req.user.id, comment: comment } },
+  },{new:true}).populate("comments.user");
   res.status(200).json({ message: "Comment added successfully", article: article });
 });

@@ -22,7 +22,7 @@ const articleSchema = new Schema(
       type: String,
       required: [true, "Title is required"],
     },
-    categoty: {
+    category: {
       type: String,
       required: [true, "Category is required"],
     },

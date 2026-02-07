@@ -1,12 +1,12 @@
-POST http://localhost:3000/user-api/users
+POST http://localhost:3000/user-api/register/users
 Content-Type: application/json
 
 {
-    "firstName":"John",
-    "lastName":"Doe",
-    "email":"johndoe@gmail.com",
-    "password":"password123",
-    "role":"user"
+    "firstName":"Umesh",
+    "lastName":"Chandra",
+    "email":"umesh@gmail.com",
+    "password":"admin123",
+    "role":"admin"
 }
 
 ###
@@ -15,5 +15,85 @@ Content-Type: application/json
 
 {
     "email":"johndoe@gmail.com",
+    "password":"password123"
+}
+
+###
+GET http://localhost:3000/user-api/articles
+
+###
+PUT http://localhost:3000/user-api/comment/articleid/69842dfa5db940c83c8a8487
+Content-Type: application/json
+
+{
+    "comment":"Great article! Really enjoyed reading it."
+}
+
+//--------------------USER API END--------------------
+
+###
+POST http://localhost:3000/author-api/register/authors
+Content-Type: application/json
+
+{
+    "firstName":"Doe",
+    "lastName":"John",
+    "email":"doejohn@gmail.com",
     "password":"password123",
+    "role":"author"
+}
+
+###
+POST http://localhost:3000/author-api/authors/login
+Content-Type: application/json
+
+{
+    "email":"doejohn@gmail.com",
+    "password":"password123"
+}
+
+###
+POST http://localhost:3000/author-api/articles
+Content-Type: application/json
+
+{
+    //authorId will be extracted from the token in the backend
+    "author":"",
+    "title":"My First Article",
+    "category":"Technology",
+    "content":"This is the content of my first article."
+}
+
+###
+GET http://localhost:3000/author-api/articles
+
+###
+PUT http://localhost:3000/author-api/articles/69842dfa5db940c83c8a8487
+Content-Type: application/json
+
+{
+    "title":"My Updated Article Title",
+    "content":"This is the updated content of my article."
+}
+
+//--------------------AUTHOR API END--------------------
+
+###
+POST http://localhost:3000/admin-api/admins/login
+Content-Type: application/json
+
+{
+    "email":"umesh@gmail.com",
+    "password":"admin123"
+}
+
+###
+GET http://localhost:3000/admin-api/articles
+
+###
+PUT http://localhost:3000/admin-api/users/69837f54a569982538f3aef1
+Content-Type: application/json
+
+{
+    "isActive": false
 }
