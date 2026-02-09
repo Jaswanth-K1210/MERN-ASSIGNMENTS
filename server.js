@@ -18,7 +18,6 @@ app.use("/admin-api", adminApp);
 
 //funciton declaration vs function expression
 
-
 const connectToDB = async () => {
   try {
     await connect(process.env.MONGODB_URL);
@@ -34,6 +33,6 @@ const connectToDB = async () => {
 connectToDB();
 
 function errorHandler(err, req, res, next) {
-    res.status(500).json({ message:"error", error: err.message });
-};
+  res.status(500).json({ message: "error", error: err.message });
+}
 app.use(errorHandler);

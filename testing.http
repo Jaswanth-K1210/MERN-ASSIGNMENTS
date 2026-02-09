@@ -2,11 +2,10 @@ POST http://localhost:3000/user-api/register/users
 Content-Type: application/json
 
 {
-    "firstName":"Umesh",
-    "lastName":"Chandra",
-    "email":"umesh@gmail.com",
-    "password":"admin123",
-    "role":"admin"
+    "firstName":"Joe",
+    "lastName":"Joe",
+    "email":"joe@gmail.com",
+    "password":"admin123" 
 }
 
 ###
@@ -40,7 +39,6 @@ Content-Type: application/json
     "lastName":"John",
     "email":"doejohn@gmail.com",
     "password":"password123",
-    "role":"author"
 }
 
 ###
@@ -59,9 +57,9 @@ Content-Type: application/json
 {
     //authorId will be extracted from the token in the backend
     "author":"",
-    "title":"My First Article",
+    "title":"My Second Article",
     "category":"Technology",
-    "content":"This is the content of my first article."
+    "content":"This is the content of my second article."
 }
 
 ###

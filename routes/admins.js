@@ -1,30 +1,15 @@
 import express from "express";
 import { UserModel } from "../models/user.js";
-import { hash, compare } from "bcryptjs";
-import jwt from "jsonwebtoken";
 import { ArticleModel } from "../models/article.js";
 import { verifyToken, checkRole } from "../middleware/verifyToken.js";
+import { authenticate } from "../services/auth-service.js";
 
 export const adminApp = express.Router();
 
 //authenticate admin
 adminApp.post("/admins/login", async (req, res) => {
   let { email, password } = req.body;
-  let user = await UserModel.findOne({ email: email });
-  if (!user) {
-    return res.status(401).json({ message: "Invalid email or password" });
-  }
-  let isMatch = await compare(password, user.password);
-  if (!isMatch) {
-    return res.status(401).json({ message: "Invalid email or password" });
-  }
-  console.log("User Role:", user.role);
-  let token = jwt.sign(
-    { id: user._id, role: user.role },
-    process.env.JWT_SECRET_KEY,
-    { expiresIn: "1h" },
-  );
-  console.log("Generated Token:", token);
+  let token = await authenticate({ email, password, role: "ADMIN" });
   res.cookie("auth-token", token, {
     httpOnly: true,
     secure: false,
@@ -40,7 +25,11 @@ adminApp.get("/articles", verifyToken, async (req, res) => {
 });
 
 //block/unblock user roles
-adminApp.put("/users/:userId",verifyToken,checkRole("ADMIN"), async (req, res) => {
+adminApp.put(
+  "/users/:userId",
+  verifyToken,
+  checkRole("ADMIN"),
+  async (req, res) => {
     let { userId } = req.params;
     let { isActive } = req.body;
     let user = await UserModel.findByIdAndUpdate(
