@@ -1,0 +1,34 @@
+### create user
+POST http://localhost:3000/user-api/user
+Content-Type: application/json
+
+{
+  "uid":"",
+  "username": "preethi",
+  "password": "jaswanth",
+  "email":"preethi@example.com",
+  "cart":[]
+}   
+
+### get all users
+GET http://localhost:3000/user-api/user
+### create product 
+POST http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "pid":102,
+    "productname":"producttest-3",
+    "price":123324,
+    "brandname":"toffee"
+} 
+
+### get all products
+GET http://localhost:3000/product-api/products
+
+### req to add product to user cart
+PUT http://localhost:3000/user-api/user/user-id/69819548a3907ee5dce118af/product-id/102
+
+
+### get user by id
+GET http://localhost:3000/user-api/user/69819548a3907ee5dce118af
