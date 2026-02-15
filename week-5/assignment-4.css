@@ -1,0 +1,81 @@
+body {
+    background-color: #ebefd9; /* Light greenish beige background color */
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+    margin: 20px;
+    max-width: 800px;
+}
+
+h1, h2, h3 {
+    font-family: Impact, "Arial Black", sans-serif; /* Rough guess for the bold heading font */
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+p {
+    font-family: "Times New Roman", Times, serif; /* Body text seems to be sans-serif in the image, actually looks like Arial/Helvetica too? Let's check closely. Hard to tell, but looks simpler. Let's stick with sans-serif for now based on the image style, wait, actually the text next to the image looks like sans-serif. */
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+    font-size: 0.9em;
+}
+
+/* Image alignment */
+.profile-img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 250px; /* Guessing width based on image */
+    height: auto;
+}
+
+/* Clearfix for floated image and text */
+.intro-text::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* List styling */
+ol, ul {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-left: 20px; /* Indent lists */
+    font-size: 0.9em;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+/* Links */
+a {
+    color: #cc3333; /* Red color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Specific red text class if needed generally, but 'a' covers links */
+.highlight-red {
+    color: #cc3333;
+}
+
+/* Footer link styling */
+.footer-link {
+    margin-top: 30px;
+    border-top: 1px solid #ccc; /* Horizontal rule above */
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #cc3333;
+    font-weight: bold;
+}
