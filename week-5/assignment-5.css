@@ -1,0 +1,46 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 40px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+img {
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Subtle border */
+}
+
+.left-img {
+    float: left;
+    margin-right: 30px;
+    width: 400px; /* Adjust as needed */
+    height: auto;
+}
+
+.right-img {
+    float: right;
+    margin-left: 30px;
+    width: 400px; /* Adjust as needed */
+    height: auto;
+}
+
+p {
+    margin-bottom: 1.5em; /* Space between paragraphs */
+    text-align: justify; /* Justified text as per screenshot */
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Specific highlight shown in screenshot */
+.highlight {
+    background-color: #d3d3d3; 
+}
