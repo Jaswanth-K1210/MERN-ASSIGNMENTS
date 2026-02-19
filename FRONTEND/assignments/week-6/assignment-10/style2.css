@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Header */
+.header {
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+    color: #2c5f6f;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.header nav {
+    display: flex;
+    gap: 40px;
+}
+
+.header nav a {
+    color: #4ECDC4;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.header nav a:hover {
+    color: #3ab0a8;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #4ECDC4;
+    padding: 60px 40px;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-icon {
+    margin-bottom: 20px;
+}
+
+.hero-icon img {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+/* Content Section */
+.content {
+    display: flex;
+    max-width: 1200px;
+    margin: 60px auto;
+    gap: 50px;
+    padding: 0 40px;
+}
+
+.column {
+    flex: 1;
+}
+
+.column h3 {
+    color: #2c5f6f;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.column p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.column p strong {
+    color: #2c5f6f;
+}
+
+/* Food Grid */
+.food-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 25px 0;
+    background-color: #4ECDC4;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.food-item {
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Coffee Cup - Brown */
+.coffee {
+    background-color: #fff;
+    position: relative;
+}
+
+.coffee::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 40px;
+    background-color: #6b4423;
+    border-radius: 5px 5px 10px 10px;
+}
+
+.coffee::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 25px;
+    border: 3px solid #6b4423;
+    border-left: none;
+    border-radius: 0 50% 50% 0;
+}
+
+/* Ice Cream - Pink */
+.ice-cream {
+    background-color: #fff;
+    position: relative;
+}
+
+.ice-cream::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 35px;
+    background-color: #ff9ec8;
+    border-radius: 50%;
+}
+
+.ice-cream::after {
+    content: '';
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #f5d5b8;
+}
+
+/* Donut */
+.donut {
+    background-color: #fff;
+    position: relative;
+}
+
+.donut::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-color: #d4a574;
+    border-radius: 50%;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.donut::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+/* Tea Cup */
+.tea {
+    background-color: #fff;
+    position: relative;
+}
+
+.tea::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 40px;
+    background-color: #8db48d;
+    border-radius: 5px 5px 10px 10px;
+}
+
+.tea::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 25px;
+    border: 3px solid #8db48d;
+    border-left: none;
+    border-radius: 0 50% 50% 0;
+}
