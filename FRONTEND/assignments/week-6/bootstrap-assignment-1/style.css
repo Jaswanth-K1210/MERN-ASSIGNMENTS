@@ -1,0 +1,63 @@
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   font-family: sans-serif;
+}
+.jumbotron{
+    background-color: rgb(229, 229, 229);
+    color : black;
+    padding: 100px;
+    h1{
+        font-size: 5rem;
+        margin-bottom: 20px;
+        font-weight: lighter;
+        
+    }
+    button{
+        background-color: rgb(61, 128, 215);
+        color : white;
+        margin-top: 40px;
+        height : 50px;
+        width : 150px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+    }
+}
+hr{
+    margin : 5px 5%;
+}
+.row{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.card{
+    h3{
+        margin: 20px 0;
+        font-size: 2rem;
+
+    }
+    align-items: center;
+    padding: 10px 20px 30px 20px;
+    text-align: left ;
+    width: 300px;
+    height : 380px;
+    margin-bottom: 20px;
+    button{
+        padding: 10px 20px;
+        background-color: grey;
+        color: white;
+        border: none;
+        margin-top:10px;
+        border-radius: 5px;
+    }
+}
+footer{
+    p{
+        margin: 10px 5%;
+    }
+   
+}
+

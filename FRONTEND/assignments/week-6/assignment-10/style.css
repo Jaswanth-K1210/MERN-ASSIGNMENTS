@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fff;
+    padding: 20px 40px;
+}
+
+.navbar h2 {
+    color: #e53935;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Banner Section */
+.banner {
+    background-color: #e53935;
+    padding: 80px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.banner-content {
+    max-width: 600px;
+}
+
+.banner-content h1 {
+    font-size: 56px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.banner-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Logo */
+.banner-logo {
+    position: relative;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    background-image: radial-gradient(circle at 30% 50%, transparent 60px, #fff 60px, #fff 70px, transparent 70px),
+                      radial-gradient(circle at 30% 50%, transparent 80px, #fff 80px, #fff 90px, transparent 90px),
+                      radial-gradient(circle at 30% 50%, transparent 100px, #fff 100px, #fff 110px, transparent 110px);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    width: 180px;
+    height: 180px;
+    background: 
+        linear-gradient(to right, transparent 45%, #e53935 45%, #e53935 48%, transparent 48%),
+        linear-gradient(to right, transparent 50%, #e53935 50%, #e53935 53%, transparent 53%),
+        linear-gradient(to right, transparent 55%, #e53935 55%, #e53935 58%, transparent 58%);
+    border-radius: 0 100% 100% 0;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: -5px 5px 0 #e53935;
+}
+
+/* Cards Section */
+.cards {
+    display: flex;
+    background-color: #5d2e2e;
+}
+
+.card {
+    flex: 1;
+    padding: 40px 30px;
+    border-right: 3px solid #e53935;
+}
+
+.card:last-child {
+    border-right: none;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d4c4c4;
+    margin-bottom: 15px;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
