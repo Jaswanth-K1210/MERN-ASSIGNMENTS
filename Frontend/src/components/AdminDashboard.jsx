@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import API_URL from '../api'
 
 function AdminDashboard() {
   const [articles, setArticles] = useState([])
@@ -18,8 +19,8 @@ function AdminDashboard() {
     setLoading(true)
     try {
       const [articlesRes, usersRes] = await Promise.all([
-        axios.get('http://localhost:3000/admin-api/articles', { withCredentials: true }),
-        axios.get('http://localhost:3000/admin-api/users', { withCredentials: true })
+        axios.get('${API_URL}/admin-api/articles', { withCredentials: true }),
+        axios.get('${API_URL}/admin-api/users', { withCredentials: true })
       ])
       setArticles(articlesRes.data.articles || [])
       setUsers(usersRes.data.users || [])
@@ -34,7 +35,7 @@ function AdminDashboard() {
   const toggleUserStatus = async (userId, currentStatus) => {
     try {
       await axios.put(
-        `http://localhost:3000/admin-api/users/${userId}`,
+        `${API_URL}/admin-api/users/${userId}`,
         { isActive: !currentStatus },
         { withCredentials: true }
       )

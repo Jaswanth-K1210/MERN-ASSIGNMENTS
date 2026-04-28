@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import API_URL from '../api'
 
 function AddArticle() {
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -14,7 +15,7 @@ function AddArticle() {
     setLoading(true)
     try {
       let res = await axios.post(
-        'http://localhost:3000/author-api/articles',
+        '${API_URL}/author-api/articles',
         data,
         { withCredentials: true }
       )

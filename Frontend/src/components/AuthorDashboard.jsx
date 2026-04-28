@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import API_URL from '../api'
 
 function AuthorDashboard() {
   const { currentUser } = useAuth()
@@ -16,7 +17,7 @@ function AuthorDashboard() {
     setLoading(true)
     try {
       const res = await axios.get(
-        `http://localhost:3000/author-api/articles/${currentUser._id}`,
+        `${API_URL}/author-api/articles/${currentUser._id}`,
         { withCredentials: true }
       )
       setArticles(res.data.payload || [])
@@ -35,7 +36,7 @@ function AuthorDashboard() {
   const toggleStatus = async (articleId) => {
     try {
       const res = await axios.patch(
-        `http://localhost:3000/author-api/articles/${articleId}`,
+        `${API_URL}/author-api/articles/${articleId}`,
         {},
         { withCredentials: true }
       )

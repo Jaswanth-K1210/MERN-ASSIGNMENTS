@@ -1,11 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import axios from "axios";
+import API_URL from '../api';
 
 // Set globally so ALL axios requests include cookies
 axios.defaults.withCredentials = true;
-
-const API_URL = "http://localhost:3000";
 
 export const useAuth = create(
   persist(
