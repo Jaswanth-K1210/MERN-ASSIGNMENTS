@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router'
 import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import API_URL from '../api'
 
 function ArticleCard() {
   const { state } = useLocation()
@@ -31,7 +32,7 @@ function ArticleCard() {
     setSubmitting(true)
     try {
       const res = await axios.put(
-        `http://localhost:3000/user-api/comment/articleid/${article._id}`,
+        `${API_URL}/user-api/comment/articleid/${article._id}`,
         { comment: commentText },
         { withCredentials: true }
       )
@@ -49,7 +50,7 @@ function ArticleCard() {
     if (!confirm('Are you sure you want to delete this article?')) return
     try {
       await axios.patch(
-        `http://localhost:3000/author-api/articles/${article._id}`,
+        `${API_URL}/author-api/articles/${article._id}`,
         {},
         { withCredentials: true }
       )

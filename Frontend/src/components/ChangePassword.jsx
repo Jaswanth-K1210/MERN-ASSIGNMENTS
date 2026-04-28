@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import API_URL from '../api'
 
 function ChangePassword() {
   const { currentUser } = useAuth()
@@ -20,7 +21,7 @@ function ChangePassword() {
     setLoading(true)
     try {
       await axios.put(
-        'http://localhost:3000/common-api/change-password',
+        `${API_URL}/common-api/change-password`,
         {
           email: currentUser.email,
           currentPassword: data.currentPassword,

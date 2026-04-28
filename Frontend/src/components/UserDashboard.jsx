@@ -3,6 +3,7 @@ import { useAuth } from '../store/useAuth'
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import API_URL from '../api'
 
 function UserDashboard() {
   const { currentUser } = useAuth()
@@ -19,7 +20,7 @@ function UserDashboard() {
     const fetchArticles = async () => {
       setLoading(true)
       try {
-        const res = await axios.get('http://localhost:3000/user-api/articles', { withCredentials: true })
+        const res = await axios.get(`${API_URL}/user-api/articles`, { withCredentials: true })
         setArticles(res.data.payload || [])
         setLoading(false)
       } catch (err) {

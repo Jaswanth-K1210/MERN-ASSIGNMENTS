@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from 'react-router'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import API_URL from '../api'
 
 function EditArticle() {
   const { state } = useLocation()
@@ -32,7 +33,7 @@ function EditArticle() {
     setLoading(true)
     try {
       const res = await axios.put(
-        `http://localhost:3000/author-api/articles/${article._id}`,
+        `${API_URL}/author-api/articles/${article._id}`,
         data,
         { withCredentials: true }
       )
