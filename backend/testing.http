@@ -1,0 +1,134 @@
+
+// user api group
+###
+POST http://localhost:3000/common-api/register
+Content-Type: application/json
+
+{
+    "firstName":"dann",
+    "lastName":"kinge",
+    "email":"danjin@gmail.com",
+    "password":"admin124",
+    "role":"USER" 
+}
+
+###
+POST http://localhost:3000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"danjin@gmail.com",
+    "password":"admin124"
+}
+
+###
+GET http://localhost:3000/user-api/articles
+
+###
+GET http://localhost:3000/get-users
+
+## change password route
+###
+PUT http://localhost:3000/common-api/change-password
+Content-Type: application/json
+
+{
+    "email":"dan@gmail.com",
+    "currentpassword":"admin1234",
+    "newpassword":"admin12345"
+}
+###
+PUT http://localhost:3000/user-api/comment/articleid/6989a7246b781df4e7a3d959
+Content-Type: application/json
+
+{
+    "comment":"Great article! Really enjoyed reading it."
+}
+
+###
+POST http://localhost:3000/common-api/logout
+// author api group
+
+###
+POST http://localhost:3000/author-api/register/authors
+Content-Type: application/json
+
+{
+    "firstName":"snw",
+    "lastName":"Joh",
+    "email":"snw@gmail.com",
+    "password":"password123",
+    "role":""
+}
+
+###
+POST http://localhost:3000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"snw@gmail.com",
+    "password":"password123"
+}
+
+###
+POST http://localhost:3000/author-api/articles/
+Content-Type: application/json
+
+{
+    // author id from token
+    "author":"",
+    "title":"My third Article",
+    "category":"AI",
+    "content":"This is the content of my third article."
+}
+
+###
+GET http://localhost:3000/author-api/articles/6989a7086b781df4e7a3d950
+
+###
+PUT http://localhost:3000/author-api/articles/69899908066a91f665428d09 
+Content-Type: application/json
+
+{
+    "title":"My  Article Title",
+    "content":"The updates of my article content."
+}
+
+### delete article
+PATCH http://localhost:3000/author-api/articles/69ae84717fbad0e0184b4a6d
+# Content-Type: application/json
+
+# {
+#     "isArticleActive": true
+# }
+###
+POST http://localhost:3000/common-api/logout
+// admin api group
+###
+POST http://localhost:3000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"admin@example.com",
+    "password":"admin123"
+}
+
+
+
+###
+GET http://localhost:3000/admin-api/articles
+
+###
+PUT http://localhost:3000/admin-api/users/6989a7086b781df4e7a3d950
+Content-Type: application/json
+
+{
+    "isActive": true
+}
+
+###
+POST http://localhost:3000/common-api/logout
+
+
+###
+GET http://localhost:3000/test
