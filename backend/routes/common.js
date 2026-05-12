@@ -12,10 +12,11 @@ commonRouter.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const { token, user } = await authenticate({ email, password });
+    const isProd = process.env.NODE_ENV === "production";
     res.cookie("auth-token", token, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: isProd,
+      sameSite: isProd ? "none" : "lax",
     });
     res.status(200).json({ message: "Login Successful", payload: user });
   } catch (err) {
@@ -71,10 +72,11 @@ commonRouter.get("/check-auth", verifyToken("USER", "AUTHOR", "ADMIN"), async (r
 // user logout route
 commonRouter.post("/logout", (req, res) => {
   // clear auth cookie
+  const isProd = process.env.NODE_ENV === "production";
   res.clearCookie("auth-token", {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: isProd,
+    sameSite: isProd ? "none" : "lax",
   });
   res.status(200).json({ message: "Logout successful" });
 });
