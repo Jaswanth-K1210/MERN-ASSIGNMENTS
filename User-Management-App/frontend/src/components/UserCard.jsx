@@ -18,7 +18,8 @@ function UserCard() {
 
     const updateUser = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/user-api/users/${user._id}`, {
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+            const res = await fetch(`${API_URL}/user-api/users/${user._id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(editData),
@@ -39,7 +40,8 @@ function UserCard() {
 
     const deleteUser = async () => {
         try {
-            const res = await fetch(`http://localhost:3000/user-api/users/${user._id}`, {
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+            const res = await fetch(`${API_URL}/user-api/users/${user._id}`, {
                 method: 'DELETE'
             });
             if (res.status === 200) {

@@ -15,7 +15,8 @@ function UserList() {
     setLoading(true);
     async function fetchUsers() {
       try {
-        let res = await axios.get("http://localhost:3000/user-api/users");
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        let res = await axios.get(`${API_URL}/user-api/users`);
         if (res.status === 200) {
           setUsers(res.data.users);
           console.log("Fetched users:", res.data.users);
@@ -41,7 +42,8 @@ function UserList() {
   };
   const handleSearch = async (id) => {
     try {
-      let res = await fetch(`http://localhost:3000/user-api/users/${id}`);
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      let res = await fetch(`${API_URL}/user-api/users/${id}`);
       if (res.status === 200) {
         let data = await res.json();
         navigate(`/usercard/${id}`, { state: data.user });

@@ -22,7 +22,8 @@ function Home() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      let res = await axios.post('http://localhost:3000/user-api/register', user);
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      let res = await axios.post(`${API_URL}/user-api/register`, user);
       if (res.status === 201) {
         console.log('User added:', res.data);
         alert('User added successfully!');
