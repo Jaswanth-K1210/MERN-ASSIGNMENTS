@@ -1,0 +1,23 @@
+POST http://localhost:3000/user-api/register
+Content-Type: application/json  
+
+{
+    "uid": " ",
+    "name": "Jon",
+    "email": "johney@gmail.com",
+    "dateOfBirth": "1990-01-01",
+    "mobileNumber": "1234567890"
+}
+
+
+###
+
+GET http://localhost:3000/user-api/users
+
+###
+GET http://localhost:3000/user-api/users/"Jon"
+###
+GET http://localhost:3000/user-api/users/69a6812f625ed6d5ec668f11
+
+###
+DELETE http://localhost:3000/user-api/users/69a67fef625ed6d5ec668f08
